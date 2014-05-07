@@ -56,15 +56,23 @@ char* intConverter(int num)
         return buf[num];
 }
 
-double printNum()
+int printNum()
 {
   time_t now = time(&now);
-  time_t waitTime = now;
   srand((unsigned) now);
   int num = rand()%20;
   double timeDiff = 0;
-  int i = 0;
   fprintf(stdout, "%d\n", num);
+  
+  return num;
+}
+
+double getNum(int numDisplayed)
+{
+  time_t now = time(&now);
+  time_t waitTime = now;
+  double timeDiff = 0;
+  
   scanf("%s['^\n']", numRead);
   tolower(numRead);
   fprintf(stdout, "\n");
@@ -75,8 +83,6 @@ double printNum()
   else
        return timeDiff;
 }
-
-double getNum()
 
 int stats(double total, int numMissed)
 {
@@ -106,7 +112,7 @@ int main()
 
    while (i < 20)
    {
-     timeDiff =  printNum();
+     timeDiff = getNum(printNum());
 
      if (timeDiff != 99)
         totalTime += timeDiff;
