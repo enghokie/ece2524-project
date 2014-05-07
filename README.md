@@ -11,3 +11,5 @@ Description:
 
 
 Unix-Philosophy:
+
+The code is comprised mainly of functions that are all modular and mostly non-cohesive. They all follow the K.I.S.S. philosophy of keeping it simple stupid since they are all very simple functions. Each function also does one thing and that one thing well. This is a simple program that uses the functions to do all it's work, keeping the main short and straight forward.
