@@ -52,8 +52,8 @@ int directions()
 char* intConverter(int num)
 {
    char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
-
-   return buf[num];
+   if (num > -1 && num < 21)
+        return buf[num];
 }
 
 double printNum()
@@ -62,7 +62,7 @@ double printNum()
   time_t waitTime = now;
   srand((unsigned) now);
   int num = rand()%20;
-   double timeDiff = 0;
+  double timeDiff = 0;
   int i = 0;
   fprintf(stdout, "%d\n", num);
   scanf("%s['^\n']", numRead);
