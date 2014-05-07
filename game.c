@@ -102,31 +102,50 @@ int stats(double total, int numMissed)
 
 int main()
 {
-   int timeDiff;
-   int missed = 0;
-   int i = 0;
-   double totalTime = 0;
-
-   welcome();
-   directions();
-
-   while (i < 20)
+   enum States = {mode1, mode2, mode3};
+   enum States curState = mode1;
+   
+   while (1)
    {
-     timeDiff = getNum(printNum());
+      int timeDiff;
+      int missed = 0;
+      int i = 0;
+      double totalTime = 0;
+     
+      welcome();
+      directions();
+   
 
-     if (timeDiff != 99)
-        totalTime += timeDiff;
-     else
-        missed++;
+      switch(curState)
+      {
+          case mode1:
+          
+          while (i < 20)
+          {
+            timeDiff = getNum(printNum());
 
-     i++;
+            if (timeDiff != 99)
+                totalTime += timeDiff;
+            else
+                missed++;
+
+            i++;
+          }
+      
+          stats(totalTime,missed);
+          break;
+          
+          case mode2:
+          break;
+          
+          case mode3:
+          break;
+          
+      }
    }
-
-   stats(totalTime,missed);
-
-   return 0;
+    
+    return 0;
 }
-
 //MODES:
 // 1. keep going until you spell one wrong: record how many correct and total time
 // 2. do reverse of original: print out word and type number
