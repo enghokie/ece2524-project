@@ -76,6 +76,8 @@ double printNum()
        return timeDiff;
 }
 
+double getNum()
+
 int stats(double total, int numMissed)
 {
   system("clear");
@@ -96,7 +98,7 @@ int main()
 {
    int timeDiff;
    int missed = 0;
-   int i = 1;
+   int i = 0;
    double totalTime = 0;
 
    welcome();
