@@ -66,6 +66,15 @@ void modeDescriptions()
     printf(" The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
     printf(" Like always, the stats will be displayed at the end =)\n\n");
   }
+  else if (!strncmp(buf,"yes",10))
+  {
+     /*Move on*/
+  }
+  else
+  {
+     printf("Please enter 'yes' or 'no'\n");
+     modeDescriptions();
+  }
 }
 
 void ready()
@@ -89,7 +98,7 @@ void ready()
   }
   else
   {
-     printf("Please enter 'yes' or 'no'\n\n");
+     printf("Please enter 'yes' or 'no'\n");
      ready();
      
   }
@@ -157,7 +166,7 @@ int wordConverter(char* word)
   char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
   for (int i = 0; i < 21; i++)
   {
-    if (!strncmp(word, buf[i], 100))
+    if (!strncmp(word, &buf[i], 100))
 	return array[i];
     else
 	return array[0];
@@ -373,6 +382,3 @@ int main()
     
     return 0;
 }
-//MODES:
-// 1. keep going until you spell one wrong: record how many correct and total time
-// 2. do reverse of original: print out word and type number
