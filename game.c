@@ -70,7 +70,6 @@ int printNum()
   time_t now = time(&now);
   srand((unsigned) now);
   int num = rand()%20;
-  double timeDiff = 0;
   fprintf(stdout, "%d\n", num);
   
   return num;
