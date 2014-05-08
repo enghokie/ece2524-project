@@ -67,7 +67,7 @@ void directionsMode1()
   printf(">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(12);
-  printf("Are you ready?? ;)\n");
+  printf("Are you ready??\n");
   wait(3);
   printf("GO!!\n\n");
 }
@@ -80,10 +80,11 @@ void directionsMode2()
   printf("\t\t\t*~~~~~~~~~~*\n\n");
   printf("DIRECTIONS:\n");
   printf("~~~~~~~~~~~\n");
-  printf(">>Type the WORD form of the number that appears\n>>Words will appear, one right after the other, until you mess up");
+  printf(">>Type the WORD form of the number that appears\n>>Words will appear, one right after the other, ");
+  printf("\n  until you misspell a word");
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(12);
-  printf("Are you ready?? ;)\n");
+  printf("Are you ready??\n");
   wait(3);
   printf("GO!!\n\n");
 }
@@ -104,11 +105,11 @@ char* intConverter(int num)
 
 void lowerCase(char* word)
 {
-	int i;
-	for (i = 0; word[i]; i++)
-	{
-		word[i] = tolower(word[i]);
-	}
+   int i;
+   for (i = 0; word[i]; i++)
+   {
+     word[i] = tolower(word[i]);
+   }
 }
 
 int printNum()
@@ -116,7 +117,7 @@ int printNum()
   time_t now = time(&now);
   srand((unsigned) now);
   int num = rand()%20;
-  printf("%d\n", num);
+  printf("%d\n",num);
   
   return num;
 }
