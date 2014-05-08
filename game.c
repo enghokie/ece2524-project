@@ -37,7 +37,8 @@ void directionsMode1()
 {
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
-  fprintf(stdout, ">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
+  fprintf(stdout, ">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
+  fprintf(stdout, "\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(12);
   fprintf(stdout, "Are you ready?? ;)\n");
   wait(3);
@@ -112,6 +113,20 @@ void stats(double total, int numMissed)
   wait(8);
 }
 
+int modeSelect()
+{
+   int mode = 0;
+   
+   fprintf(stdout,">>Mode Desired: ");
+   scanf("%d['^\n']", &mode);
+   while (mode != 1 && mode !=2 && mode !=3)
+   {
+      fprintf(stdout,"Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n")
+   }
+   fprintf(stdout,"\n\n");
+   return mode;
+}
+
 int main()
 {
    enum States{mode1, mode2, mode3};
@@ -123,13 +138,11 @@ int main()
       int missed = 0;
       int i = 0;
       double totalTime = 0;
-      int mode = 0;
       welcome();
-      scanf("%d['^\n']", &mode);
+      int mode = modeSelect();
       if (mode == 1) curState = mode1;
       else if (mode == 2) curState = mode2;
       else if (mode == 3) curState = mode3;
-      //error checking for if input is not mode 1, 2, or 3
 
       switch(curState)
       {
