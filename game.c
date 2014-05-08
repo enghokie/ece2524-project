@@ -105,7 +105,7 @@ int stats(double total, int numMissed)
   fprintf(stdout,"*                                             *\n");
   fprintf(stdout,"*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
   fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  wait(7);
+  wait(4);
   return 0;
 }
 
