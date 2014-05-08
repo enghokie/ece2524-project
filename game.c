@@ -19,6 +19,17 @@ int wait(double seconds)
   return 1;
 }
 
+char* stringLower(char* word)
+{
+   int i;
+   for (i = 0; word[i]; i++)
+   {
+     word[i] = tolower(word[i]);
+   }
+   
+   return word;
+}
+
 void welcome()
 {
   system("clear");
@@ -145,15 +156,6 @@ int wordConverter(char* word)
   }
 }
 
-void stringLower(char* word)
-{
-   int i;
-   for (i = 0; word[i]; i++)
-   {
-     word[i] = tolower(word[i]);
-   }
-}
-
 int printNum()
 {
   time_t now = time(&now);
@@ -171,7 +173,7 @@ double getNum(int numDisplayed)
   double timeDiff = 0;
   
   scanf("%s['^\n']", numRead);
-  stringLowerCase(numRead);
+  numRead = stringLower(numRead);
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
