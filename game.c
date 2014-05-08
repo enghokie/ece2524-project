@@ -90,7 +90,7 @@ double getNum(int numDisplayed)
   lowerCase(numRead);
   fprintf(stdout, "\n");
   time(&waitTime);
-  timeDiff = difftime(waitTime,numDisplayed);
+  timeDiff = difftime(waitTime,now);
   if (strncmp(numRead,intConverter(numDisplayed),100))
        return 99;
   else
