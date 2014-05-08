@@ -36,7 +36,7 @@ void modeDescriptions()
 {
   char buf[10];
   
-  fprintf(stdout, "If you would like to skip the mode descriptions, enter yes, otherwise enter no");
+  fprintf(stdout, "If you would like to skip the mode descriptions, enter yes, otherwise enter no: ");
   scanf("%s['^\n']", buf);
   if (!strncmp(buf,"no",10))
   {
