@@ -77,15 +77,21 @@ void ready()
   {
   	/*Go on*/
   }
-  else
+  else if (!strncmp(stringLower(buf),"no",10))
   {
-  	while (!strncmp(stringLower(buf),"yes",10))
+  	while (!strncmp(stringLower(buf),"no",10))
   	{
   	  printf("Okay I'll wait...\n");
   	  wait(5);
   	  printf("How about now?\n");
   	  scanf("%s['^\n']", buf);
   	}
+  }
+  else
+  {
+     printf("Please enter 'yes' or 'no'\n\n");
+     ready();
+     
   }
 }
 
@@ -151,7 +157,7 @@ int wordConverter(char* word)
   char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
   for (int i = 0; i < 21; i++)
   {
-    if (strncmp(word, buf[i], 100))
+    if (!strncmp(word, buf[i], 100))
 	return array[i];
     else
 	return array[0];
@@ -244,14 +250,14 @@ void statsMode2(double total, int numSpelled)
   wait(7);
 }
 
-void statsMode3(double total, int num)
+void statsMode3(double total, int numMissed)
 {
   system("clear");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
   printf("*                       GAME OVER                    *\n");
   printf("*                                                    *\n");
   printf("* STATS:                                             *\n");
-  printf("*       >>Numbers Missed        %d/%d numbers(s)     *\n", num,maxElement);
+  printf("*       >>Numbers Missed        %d/%d numbers(s)     *\n", numMissed,maxElement);
   printf("*       >>Average Time          %.2f second(s)       *\n", total/maxElement);
   printf("*                                                    *\n");
   printf("*       !!THANKS FOR PLAYING TypeMachine!! =D        *\n");
@@ -281,7 +287,7 @@ int modeSelect()
 void totalWords()
 {
   int words;
-  printf(">>\nEnter the amount of words you want to challenge yourself with: ");
+  printf("\n>>Enter the amount of words you want to challenge yourself with: ");
   scanf("%d['^\n']", &words);
   maxElement = words;
   printf("GO!!\n\n");
