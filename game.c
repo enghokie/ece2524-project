@@ -59,9 +59,9 @@ char* intConverter(int num)
 void lowerCase(char* word)
 {
 	int i;
-	for (i = 0; i < strlen(word); i++)
+	for (i = 0; word[i]; i++)
 	{
-		tolower(word[i]);
+		word[i] = tolower(word[i]);
 	}
 }
 
