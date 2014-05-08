@@ -103,6 +103,7 @@ void directionsMode3()
   printf("Are you ready??\n");
   wait(3);
   printf("GO!!\n\n");
+}
 
 char* intConverter(int num)
 {
