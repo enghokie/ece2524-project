@@ -74,7 +74,7 @@ void ready()
   printf("Are you ready??\n");
   scanf("%s['^\n']", buf);
   if (!strncmp(stringLower(buf),"yes", 10))
-  	//Go on
+  	/*Go on*/
   else
   {
   	while (!strncmp(stringLower(buf),"yes",10))
