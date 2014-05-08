@@ -50,11 +50,11 @@ void modeDescriptions()
   printf("If you would like to skip the mode descriptions enter 'yes', otherwise enter 'no': ");
   scanf("%s['^\n']", buf);
   stringLower(buf);
-  if (!strncmp(buf,"no",10))
+  if (strncmp(buf,"no",10) == 0)
   {
     printf("\n\n~>MODES<~\n");
     printf("__________\n\n");
-    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t Mode1 is also selected by default.\n\t");
+    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
     printf(" This mode randomly outputs a specified amount of numbers \n\t and you have to type them in the space below as fast ");
     printf("as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t of the words.\n\n");
     printf("Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
@@ -66,7 +66,7 @@ void modeDescriptions()
     printf(" The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
     printf(" Like always, the stats will be displayed at the end =)\n\n");
   }
-  else if (!strncmp(buf,"yes",10))
+  else if (strncmp(buf,"yes",10) == 0)
   {
      /*Move on*/
   }
@@ -194,7 +194,7 @@ double getNum(int numDisplayed)
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
-  if (strncmp(numRead,intConverter(numDisplayed),100) == 0)
+  if (strncmp(numRead,intConverter(numDisplayed),50) == 0)
        return timeDiff;
   else
        return 99;
@@ -216,7 +216,7 @@ double getNum2(char* wordDisplayed)
   time_t now = time(&now);
   time_t waitTime = now;
   double timeDiff = 0;
-  scanf("%d['^\n']", &num);
+  scanf("%d", &num);
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime, now);
@@ -278,15 +278,15 @@ void statsMode3(double total, int numMissed)
 }
 
 
-char modeSelect()
+char* modeSelect()
 {
-   char mode;
+   char mode[15];
    int redo = 1;
    printf(">>Mode Desired: ");
-   scanf("%s['^\n']", &mode);
+   scanf("%s['^\n']", mode);
    while (redo)
    {
-      if (mode == '1' || mode == '2' || mode == '3')
+      if ((strncmp(mode,"1",5) == 0) || (strncmp(mode,"2",5) == 0) ||(strncmp(mode,"3",5) == 0))
       {
 	 redo = 0;
   	 break;
@@ -295,7 +295,7 @@ char modeSelect()
       {
 	 printf("Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
          printf(">>Mode Desired: ");
-         scanf("%s['^\n']", &mode);
+         scanf("%s['^\n']", mode);
       }
    }
    printf("\n\n");
@@ -306,7 +306,7 @@ void totalWords()
 {
   int words;
   printf("\n>>Enter the amount of words you want to challenge yourself with: ");
-  scanf("%d['^\n']", &words);
+  scanf("%d", &words);
   maxElement = words;
   printf("GO!!\n\n");
 }
@@ -326,9 +326,9 @@ int main()
       welcome();
       modeDescriptions();
       char mode = modeSelect();
-      if (mode == '1') curState = mode1;
-      else if (mode == '2') curState = mode2;
-      else if (mode == '3') curState = mode3;
+      if (strncmp(mode,"1",5) == 0) curState = mode1;
+      else if (strncmp(mode,"2",5) == 0) curState = mode2;
+      else if (strncmp(mode,"3",5) == 0) curState = mode3;
 
       switch(curState)
       {
@@ -357,9 +357,9 @@ int main()
             timeDiff = getNum(printNum());
             while (timeDiff != 99)
             {
+               totalTime += timeDiff;
+               spelled++;
                timeDiff = getNum(printNum());
-	       totalTime += timeDiff;
-	       spelled++;
             }
             statsMode2(totalTime,spelled);
             break;
