@@ -177,6 +177,7 @@ int modeSelect()
    scanf("%d['^\n']", &mode);
    while (mode != 1 && mode !=2 && mode !=3)
    {
+      scanf("%d['^\n']", &mode);
       printf("Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
    }
    printf("\n\n");
