@@ -74,7 +74,9 @@ void ready()
   printf("Are you ready??\n");
   scanf("%s['^\n']", buf);
   if (!strncmp(stringLower(buf),"yes", 10))
+  {
   	/*Go on*/
+  }
   else
   {
   	while (!strncmp(stringLower(buf),"yes",10))
@@ -215,8 +217,8 @@ void statsMode1(double total, int numMissed)
   printf("*                    GAME OVER                   *\n");
   printf("*                                                *\n");
   printf("* STATS:                                         *\n");
-  printf("*       >>Words Mispelled  %d/%d word(s)         *\n", numMissed,maxWords);
-  printf("*       >>Average Time     %.2f second(s)        *\n", total/maxWords);
+  printf("*       >>Words Mispelled  %d/%d word(s)         *\n", numMissed,maxElement);
+  printf("*       >>Average Time     %.2f second(s)        *\n", total/maxElement);
   printf("*                                                *\n");
   printf("*       !!THANKS FOR PLAYING TypeMachine!! =D    *\n");
   printf("*                                                *\n");
