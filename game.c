@@ -173,7 +173,7 @@ double getNum(int numDisplayed)
   double timeDiff = 0;
   
   scanf("%s['^\n']", numRead);
-  numRead = stringLower(numRead);
+  stringLower(numRead);
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
