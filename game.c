@@ -36,7 +36,7 @@ void modeDescriptions()
 {
   char buf[10];
   
-  fprintf(stdout, "If you would like to skip the mode descriptions, enter yes, otherwise enter no: ");
+  fprintf(stdout, "If you would like to skip the mode descriptions, enter 'yes', otherwise enter 'no': \n");
   scanf("%s['^\n']", buf);
   if (!strncmp(buf,"no",10))
   {
@@ -51,7 +51,7 @@ void modeDescriptions()
     fprintf(stdout," Your statistics will then be displayed.\n\n");
     fprintf(stdout,"Mode3:\n\t-Activate mode3 by inputing '3' when prompted.\n\t");
     fprintf(stdout," This mode is the exact reverse of mode1, instead of the numbers being\n\t displayed and you having to type the word forms.\n\t");
-    fprintf(stdout,"The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
+    fprintf(stdout," The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
     fprintf(stdout," Like always, the stats will be displayed at the end =)\n\n");
   }
 }
