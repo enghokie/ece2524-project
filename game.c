@@ -32,7 +32,7 @@ int welcome()
   fprintf(stdout, "\t\t                            \n");
   fprintf(stdout, "\t     **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
-
+  //add descriptions of each mode
   return 0;
 }
 
@@ -112,7 +112,7 @@ int stats(double total, int numMissed)
 int main()
 {
    enum States{mode1, mode2, mode3};
-   enum States curState = mode1;
+   enum States curState;
    
    while (1)
    {
@@ -120,15 +120,18 @@ int main()
       int missed = 0;
       int i = 0;
       double totalTime = 0;
-     
+      int mode = 0;
       welcome();
-      directionsMode1();
-   
+      scanf("%d['^\n']", &mode);
+      if (mode == 1) curState = mode1;
+      else if (mode == 2) curState = mode2;
+      else if (mode == 3) curState = mode3;
+      //error checking for if input is not mode 1, 2, or 3
 
       switch(curState)
       {
           case mode1: {
-          
+          directionsMode1();
           while (i < 20)
           {
             timeDiff = getNum(printNum());
