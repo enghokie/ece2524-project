@@ -30,13 +30,13 @@ int welcome()
   fprintf(stdout, "\t\t|            & Siraj Ali   |\n");
   fprintf(stdout, "\t\t|__________________________|\n");
   fprintf(stdout, "\t\t                            \n");
-  fprintf(stdout, "\t     **PLEASE WAIT UNTIL GAME STARTS**\n\n");
+  fprintf(stdout, "\t     **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
 
   return 0;
 }
 
-int directions()
+int directionsMode1()
 {
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
@@ -122,7 +122,7 @@ int main()
       double totalTime = 0;
      
       welcome();
-      directions();
+      directionsMode1();
    
 
       switch(curState)
