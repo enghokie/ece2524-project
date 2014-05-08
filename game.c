@@ -54,7 +54,7 @@ void modeDescriptions()
   {
     printf("\n\n~>MODES<~\n");
     printf("__________\n\n");
-    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
+    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted. Mode1 is also selected by default.\n\t");
     printf(" This mode randomly outputs a specified amount of numbers \n\t and you have to type them in the space below as fast ");
     printf("as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t of the words.\n\n");
     printf("Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
@@ -278,17 +278,25 @@ void statsMode3(double total, int numMissed)
 }
 
 
-int modeSelect()
+char modeSelect()
 {
-   int mode = 0;
-   
+   char mode;
+   int redo = 1;
    printf(">>Mode Desired: ");
-   scanf("%d['^\n']", &mode);
-   while (mode != 1 && mode !=2 && mode !=3)
+   scanf("%s['^\n']", &mode);
+   while (redo)
    {
-      printf("Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
-      printf(">>Mode Desired: ");
-      scanf("%d['^\n']", &mode);
+      if (mode == '1' || mode == '2' || mode == '3')
+      {
+	 redo = 0;
+  	 break;
+      }
+      else 
+      {
+	 printf("Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
+         printf(">>Mode Desired: ");
+         scanf("%s['^\n']", &mode);
+      }
    }
    printf("\n\n");
    return mode;
@@ -317,10 +325,10 @@ int main()
       double totalTime = 0;
       welcome();
       modeDescriptions();
-      int mode = modeSelect();
-      if (mode == 1) curState = mode1;
-      else if (mode == 2) curState = mode2;
-      else if (mode == 3) curState = mode3;
+      char mode = modeSelect();
+      if (mode == '1') curState = mode1;
+      else if (mode == '2') curState = mode2;
+      else if (mode == '3') curState = mode3;
 
       switch(curState)
       {
