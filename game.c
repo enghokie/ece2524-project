@@ -127,7 +127,7 @@ double getNum(int numDisplayed)
        return timeDiff;
 }
 
-void stats(double total, int numMissed)
+void statsMode1(double total, int numMissed)
 {
   system("clear");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
@@ -189,7 +189,7 @@ int main()
 
             i++;
           }
-          stats(totalTime,missed);
+          statsMode1(totalTime,missed);
           break;
 	  }
           
