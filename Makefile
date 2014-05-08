@@ -6,6 +6,7 @@ typemachine: game.o
 	$(CC) game.o -o typemachine
 
 game.o: game.c
+	$(CC) -c game.c
 
 .PHONY: clean
 clean:
