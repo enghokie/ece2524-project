@@ -191,7 +191,7 @@ int main()
    {
       int timeDiff;
       int missed = 0;
-      int spelled = 0;
+      int spelled = -1;
       int i = 0;
       double totalTime = 0;
       welcome();
@@ -228,7 +228,7 @@ int main()
             while (timeDiff != 99)
             {
                timeDiff = getNum(printNum());
-	       totalTime += timeDiff();
+	       totalTime += timeDiff;
 	       spelled++;
             }
             statsMode2(totalTime,spelled);
