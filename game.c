@@ -62,15 +62,15 @@ void ready()
   char buf[10];
   printf("Are you ready??\n");
   scanf("%s['^\n']", buf);
-  if (!strncmp(lowerCase(buf),"yes", 10))
+  if (!strncmp(stringLower(buf),"yes", 10))
   	printf("GO!!\n\n");
   else
   {
-  	while (!strncmp(lowerCase(buf),"yes",10))
+  	while (!strncmp(stringLower(buf),"yes",10))
   	{
-  	  printf("Okay I'll wait...\n")
+  	  printf("Okay I'll wait...\n");
   	  wait(5);
-  	  printf("How about now?\n")
+  	  printf("How about now?\n");
   	  scanf("%s['^\n']", buf);
   	}
   	printf("GO!!\n\n");
@@ -145,7 +145,7 @@ int wordConverter(char* word)
   }
 }
 
-void lowerCase(char* word)
+void stringLower(char* word)
 {
    int i;
    for (i = 0; word[i]; i++)
@@ -171,7 +171,7 @@ double getNum(int numDisplayed)
   double timeDiff = 0;
   
   scanf("%s['^\n']", numRead);
-  lowerCase(numRead);
+  stringLowerCase(numRead);
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
@@ -196,7 +196,7 @@ double getNum2(char* wordDisplayed)
   time_t now = time(&now);
   time_t waitTime = now;
   double timeDiff = 0;
-  scanf("%d['^\n']", num);
+  scanf("%d['^\n']", &num);
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime, now);
@@ -278,7 +278,7 @@ void totalWords()
 {
   int words;
   printf(">>Enter the amount of words you want to challenge yourself with: ");
-  scanf("%d['^\n']", words);
+  scanf("%d['^\n']", &words);
   maxWords = words;
 }
 
