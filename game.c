@@ -77,8 +77,8 @@ double getNum(int numDisplayed)
   tolower(numRead);
   fprintf(stdout, "\n");
   time(&waitTime);
-  timeDiff = difftime(waitTime,now);
-  if (strncmp(numRead,intConverter(num),100))
+  timeDiff = difftime(waitTime,numDisplayed);
+  if (strncmp(numRead,intConverter(numDisplayed),100))
        return 99;
   else
        return timeDiff;
@@ -102,7 +102,7 @@ int stats(double total, int numMissed)
 
 int main()
 {
-   enum States = {mode1, mode2, mode3};
+   enum States{mode1, mode2, mode3};
    enum States curState = mode1;
    
    while (1)
