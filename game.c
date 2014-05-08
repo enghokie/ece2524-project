@@ -54,7 +54,7 @@ void modeDescriptions()
   {
     printf("\n\n~>MODES<~\n");
     printf("__________\n\n");
-    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted. Mode1 is also selected by default.\n\t");
+    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t Mode1 is also selected by default.\n\t");
     printf(" This mode randomly outputs a specified amount of numbers \n\t and you have to type them in the space below as fast ");
     printf("as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t of the words.\n\n");
     printf("Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
@@ -82,11 +82,11 @@ void ready()
   char buf[10];
   printf("Are you ready??\n");
   scanf("%s['^\n']", buf);
-  if (!strncmp(stringLower(buf),"yes", 10))
+  if (strncmp(stringLower(buf),"yes", 10) == 0)
   {
   	/*Go on*/
   }
-  else if (!strncmp(stringLower(buf),"no",10))
+  else if (strncmp(stringLower(buf),"no",10) == 0)
   {
   	while (!strncmp(stringLower(buf),"no",10))
   	{
@@ -194,7 +194,7 @@ double getNum(int numDisplayed)
   printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
-  if (!strncmp(numRead,intConverter(numDisplayed),100))
+  if (strncmp(numRead,intConverter(numDisplayed),100) == 0)
        return timeDiff;
   else
        return 99;
@@ -353,8 +353,8 @@ int main()
           
           case mode2: 
           {
-            timeDiff = 0;	
             directionsMode2();
+            timeDiff = getNum(printNum());
             while (timeDiff != 99)
             {
                timeDiff = getNum(printNum());
@@ -367,7 +367,6 @@ int main()
           
           case mode3:
 	  {
-	    timeDiff = 0;
 	    directionsMode3();
 	    totalWords();
 	    while (i < maxElement)
