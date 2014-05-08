@@ -40,7 +40,7 @@ int directionsMode1()
 {
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
-  fprintf(stdout, ">>Type the WORD form of the number that appears in all LOWERCASE\n>>Twenty words will appear, one right after the other\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
+  fprintf(stdout, ">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(12);
   fprintf(stdout, "Are you ready?? ;)\n");
   wait(3);
@@ -70,7 +70,6 @@ int printNum()
   time_t now = time(&now);
   srand((unsigned) now);
   int num = rand()%20;
-  double timeDiff = 0;
   fprintf(stdout, "%d\n", num);
   
   return num;
@@ -105,7 +104,7 @@ int stats(double total, int numMissed)
   fprintf(stdout,"*                                             *\n");
   fprintf(stdout,"*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
   fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  wait(4);
+  wait(8);
   return 0;
 }
 
