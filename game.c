@@ -30,7 +30,7 @@ int welcome()
   fprintf(stdout, "\t\t|            & Siraj Ali   |\n");
   fprintf(stdout, "\t\t|__________________________|\n");
   fprintf(stdout, "\t\t                            \n");
-  fprintf(stdout, "\t     **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
+  fprintf(stdout, "\t**PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
   //add descriptions of each mode
   return 0;
@@ -150,6 +150,9 @@ int main()
           break;
           
           case mode3:
+          break;
+          
+          default:
           break;
           
       }
