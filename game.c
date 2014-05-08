@@ -56,6 +56,15 @@ char* intConverter(int num)
         return buf[num];
 }
 
+void lowerCase(char* word)
+{
+	int i;
+	for (i = 0; i < strlen(word); i++)
+	{
+		tolower(word[i]);
+	}
+}
+
 int printNum()
 {
   time_t now = time(&now);
@@ -96,7 +105,7 @@ int stats(double total, int numMissed)
   fprintf(stdout,"*                                             *\n");
   fprintf(stdout,"*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
   fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-
+  wait(7);
   return 0;
 }
 
@@ -118,7 +127,7 @@ int main()
 
       switch(curState)
       {
-          case mode1:
+          case mode1: {
           
           while (i < 20)
           {
@@ -131,9 +140,9 @@ int main()
 
             i++;
           }
-      
           stats(totalTime,missed);
           break;
+	  }
           
           case mode2:
           break;
