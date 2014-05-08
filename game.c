@@ -83,7 +83,7 @@ double getNum(int numDisplayed)
   double timeDiff = 0;
   
   scanf("%s['^\n']", numRead);
-  tolower(numRead);
+  lowerCase(numRead);
   fprintf(stdout, "\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,numDisplayed);
