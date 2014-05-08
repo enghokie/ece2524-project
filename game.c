@@ -4,7 +4,7 @@
 #include <string.h>
 
 char numRead[30];
-int maxWords = 0;
+int maxElement = 0;
 
 int wait(double seconds)
 {
@@ -74,7 +74,7 @@ void ready()
   printf("Are you ready??\n");
   scanf("%s['^\n']", buf);
   if (!strncmp(stringLower(buf),"yes", 10))
-  	printf("GO!!\n\n");
+  	//Go on
   else
   {
   	while (!strncmp(stringLower(buf),"yes",10))
@@ -84,7 +84,6 @@ void ready()
   	  printf("How about now?\n");
   	  scanf("%s['^\n']", buf);
   	}
-  	printf("GO!!\n\n");
   }
 }
 
@@ -117,6 +116,7 @@ void directionsMode2()
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(3);
   ready();
+  printf("GO!!\n\n");
 }
 
 void directionsMode3()
@@ -162,7 +162,6 @@ int printNum()
   srand((unsigned) now);
   int num = rand()%20;
   printf("%d\n",num);
-  
   return num;
 }
 
@@ -189,6 +188,7 @@ char* printWord()
   time_t now = time(&now);
   srand((unsigned) now);
   int num = rand()%20;
+  printf("%s\n",buf[num]);
   return buf[num];
 }
 
@@ -215,7 +215,7 @@ void statsMode1(double total, int numMissed)
   printf("*                    GAME OVER                   *\n");
   printf("*                                                *\n");
   printf("* STATS:                                         *\n");
-  printf("*       >>Words Mispelled  %d/20 word(s)         *\n", numMissed);
+  printf("*       >>Words Mispelled  %d/%d word(s)         *\n", numMissed,maxWords);
   printf("*       >>Average Time     %.2f second(s)        *\n", total/maxWords);
   printf("*                                                *\n");
   printf("*       !!THANKS FOR PLAYING TypeMachine!! =D    *\n");
@@ -246,11 +246,11 @@ void statsMode3(double total, int num)
 {
   system("clear");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  printf("*                     GAME OVER                      *\n");
+  printf("*                       GAME OVER                    *\n");
   printf("*                                                    *\n");
   printf("* STATS:                                             *\n");
-  printf("*       >>Numbers Entered Correctly  %d numbers(s)   *\n", num);
-  printf("*       >>Average Time             %.2f second(s)    *\n", total/maxWords);
+  printf("*       >>Numbers Missed        %d/%d numbers(s)     *\n", num,maxElement);
+  printf("*       >>Average Time          %.2f second(s)       *\n", total/maxElement);
   printf("*                                                    *\n");
   printf("*       !!THANKS FOR PLAYING TypeMachine!! =D        *\n");
   printf("*                                                    *\n");
@@ -279,9 +279,10 @@ int modeSelect()
 void totalWords()
 {
   int words;
-  printf(">>Enter the amount of words you want to challenge yourself with: ");
+  printf(">>\nEnter the amount of words you want to challenge yourself with: ");
   scanf("%d['^\n']", &words);
-  maxWords = words;
+  maxElement = words;
+  printf("GO!!\n\n");
 }
 
 int main()
@@ -309,7 +310,7 @@ int main()
           {
             directionsMode1();
             totalWords();
-            while (i < maxWords)
+            while (i < maxElement)
             {
               timeDiff = getNum(printNum());
 
@@ -343,7 +344,7 @@ int main()
 	    timeDiff = 0;
 	    directionsMode3();
 	    totalWords();
-	    while (i < maxWords)
+	    while (i < maxElement)
             {
               timeDiff = getNum2(printWord());
               if (timeDiff != 99)
