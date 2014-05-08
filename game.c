@@ -330,7 +330,7 @@ int main()
       double totalTime = 0;
       welcome();
       modeDescriptions();
-      char mode = modeSelect();
+      char* mode = modeSelect();
       if (strncmp(mode,"1",5) == 0) curState = mode1;
       else if (strncmp(mode,"2",5) == 0) curState = mode2;
       else if (strncmp(mode,"3",5) == 0) curState = mode3;
