@@ -37,10 +37,10 @@ void modeDescriptions()
   char buf[10];
   
   fprintf(stdout, "If you would like to skip the mode descriptions, enter yes, otherwise enter no");
-  scanf("%s['^\n']", &buf);
+  scanf("%s['^\n']", buf);
   if (!strncmp(buf,"no",10))
   {
-    fprintf(stdout,"~>MODES<~\n");
+    fprintf(stdout,"\n\n~>MODES<~\n");
     fprintf(stdout,"__________\n\n");
     fprintf(stdout,"Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
     fprintf(stdout,"This mode randomly outputs twenty numbers and you have to type them in the space below as fast ");
