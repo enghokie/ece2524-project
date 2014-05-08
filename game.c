@@ -178,7 +178,7 @@ double getNum2(char* wordDisplayed)
   int num;
   time_t now = time(&now);
   time_t waitTime = now;
-  double timeDiff = 0;r*
+  double timeDiff = 0;
   scanf("%d['^\n']", &num);
   printf("\n");
   time(&waitTime);
