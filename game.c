@@ -163,6 +163,7 @@ int main()
       int i = 0;
       double totalTime = 0;
       welcome();
+      modeDescriptions();
       int mode = modeSelect();
       if (mode == 1) curState = mode1;
       else if (mode == 2) curState = mode2;
