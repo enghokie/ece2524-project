@@ -59,8 +59,8 @@ void modeDescriptions()
 void directionsMode1()
 {
   system("clear");
-  fprintf(stdout, "\t\t\t*~~~~~~~~~~*");
-  fprintf(stdout, "\t\t\t|  MODE 1  |");
+  fprintf(stdout, "\t\t\t*~~~~~~~~~~*\n");
+  fprintf(stdout, "\t\t\t|  MODE 1  |\n");
   fprintf(stdout, "\t\t\t*~~~~~~~~~~*\n\n");
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
