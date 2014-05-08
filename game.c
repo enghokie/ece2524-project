@@ -50,6 +50,7 @@ void modeDescriptions()
   
   printf("If you would like to skip the mode descriptions enter 'yes', otherwise enter 'no': ");
   scanf("%s['^\n']", buf);
+  stringLower(buf);
   if (!strncmp(buf,"no",10))
   {
     printf("\n\n~>MODES<~\n");
@@ -166,7 +167,7 @@ int wordConverter(char* word)
   char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
   for (int i = 0; i < 21; i++)
   {
-    if (!strncmp(word, &buf[i], 100))
+    if (!strncmp(word, buf[i], 100))
 	return array[i];
     else
 	return array[0];
