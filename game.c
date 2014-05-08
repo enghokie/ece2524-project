@@ -15,12 +15,10 @@ int wait(double seconds)
   {
      time(&wait);
   }
-
   return 1;
-
 }
 
-int welcome()
+void welcome()
 {
   system("clear");
   fprintf(stdout, "\t\t __________________________\n");
@@ -33,10 +31,9 @@ int welcome()
   fprintf(stdout, "\t     **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
   //add descriptions of each mode
-  return 0;
 }
 
-int directionsMode1()
+void directionsMode1()
 {
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
@@ -45,8 +42,16 @@ int directionsMode1()
   fprintf(stdout, "Are you ready?? ;)\n");
   wait(3);
   fprintf(stdout, "GO!!\n\n");
+}
 
-  return 0;
+void directionsMode2()
+{
+
+}
+
+void directionsMode3()
+{
+
 }
 
 char* intConverter(int num)
@@ -92,7 +97,7 @@ double getNum(int numDisplayed)
        return timeDiff;
 }
 
-int stats(double total, int numMissed)
+void stats(double total, int numMissed)
 {
   system("clear");
   fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
@@ -105,7 +110,6 @@ int stats(double total, int numMissed)
   fprintf(stdout,"*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
   fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
   wait(8);
-  return 0;
 }
 
 int main()
