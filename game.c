@@ -118,4 +118,7 @@ int main()
 
    return 0;
 }
-               
+
+//MODES:
+// 1. keep going until you spell one wrong: record how many correct and total time
+// 2. do reverse of original: print out word and type number
