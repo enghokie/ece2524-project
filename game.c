@@ -91,8 +91,18 @@ void directionsMode2()
 
 void directionsMode3()
 {
-
-}
+  system("clear");
+  printf("\t\t\t*~~~~~~~~~~*\n");
+  printf("\t\t\t|  MODE 3  |\n");
+  printf("\t\t\t*~~~~~~~~~~*\n\n");
+  printf("DIRECTIONS:\n");
+  printf("~~~~~~~~~~~\n");
+  printf(">>Type the INTEGER form of the number that appears\n>>Twenty numbers will appear, one right after the other");
+  printf("\n>>To quit press Ctrl+c\n>>Type the numbers as fast as you can and push enter once you're done!!\n\n");
+  wait(12);
+  printf("Are you ready??\n");
+  wait(3);
+  printf("GO!!\n\n");
 
 char* intConverter(int num)
 {
@@ -101,6 +111,20 @@ char* intConverter(int num)
         return buf[num];
    else
         return buf[0]; //error handling
+}
+
+int wordConverter(char* word)
+{
+  int array[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+  char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
+  int i;
+  for (i = 0; i < 21; i++)
+  {
+    if (strncmp(word, buf[i], 100))
+	return array[i];
+    else
+	return array[0];
+  }
 }
 
 void lowerCase(char* word)
@@ -139,6 +163,31 @@ double getNum(int numDisplayed)
        return timeDiff;
 }
 
+char* printWord()
+{
+  char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
+  time_t now = time(&now);
+  srand((unsigned) now);
+  int num = rand()%20;
+  return buf[num];
+}
+
+double getNum2(char* wordDisplayed)
+{
+  int num;
+  time_t now = time(&now);
+  time_t waitTime = now;
+  double timeDiff = 0;r*
+  scanf("%d['^\n']", &num);
+  printf("\n");
+  time(&waitTime);
+  timeDiff = difftime(waitTime, now);
+  if (wordConverter(wordDisplayed) == num)
+	return 99;
+  else
+	return timeDiff;
+}
+
 void statsMode1(double total, int numMissed)
 {
   system("clear");
@@ -168,6 +217,22 @@ void statsMode2(double total, int numSpelled)
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
   wait(8);
 }
+
+void statsMode3(double total, int num)
+{
+  system("clear");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  printf("*                GAME OVER                            *\n");
+  printf("*                                                     *\n");
+  printf("* STATS:                                              *\n");
+  printf("*       >>Numbers Entered Correctly  %d numbers(s)    *\n", num);
+  printf("*       >>Average Time             %.2f second(s)     *\n", total/20);
+  printf("*                                                     *\n");
+  printf("*   !!THANKS FOR PLAYING TypeMachine!! =D             *\n");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  wait(8);
+}
+
 
 int modeSelect()
 {
@@ -239,10 +304,20 @@ int main()
           }
           
           case mode3:
-          break;
-          
+	  {
+	    timeDiff = 0;
+	    directionsMode3();
+	    while (timeDiff != 99)
+	    {
+	       timeDiff = getNum2(wordConverter(printWord));
+	       totalTime += timeDiff;
+	       spelled++;
+	    }
+	    statsMode3(totalTime, spelled);
+            break;
+	  }
           default:
-          break;
+            break;
           
       }
    }
