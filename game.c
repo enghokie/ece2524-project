@@ -43,16 +43,16 @@ void modeDescriptions()
     fprintf(stdout,"\n\n~>MODES<~\n");
     fprintf(stdout,"__________\n\n");
     fprintf(stdout,"Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
-    fprintf(stdout,"This mode randomly outputs twenty numbers and you have to type them in the space below as fast ");
-    fprintf(stdout,"as you can.\n\t Your statistics will be displayed after you have finished typing all twenty words.\n\n");
+    fprintf(stdout," This mode randomly outputs twenty numbers and you have to type them in\n\t the space below as fast ");
+    fprintf(stdout,"as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t twenty words.\n\n");
     fprintf(stdout,"Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
-    fprintf(stdout,"This mode randomly generates numbers and you will have to type them in the space below as fast ");
+    fprintf(stdout," This mode randomly generates numbers and you will have to type them in\n\t the space below as fast ");
     fprintf(stdout,"as you can.\n\t The game will end once you mess up typing a number in the word form.\n\t");
-    fprintf(stdout,"Your statistics will then be displayed.\n\n");
+    fprintf(stdout," Your statistics will then be displayed.\n\n");
     fprintf(stdout,"Mode3:\n\t-Activate mode3 by inputing '3' when prompted.\n\t");
-    fprintf(stdout,"This mode is the exact reverse of mode1, instead of the numbers being displayed and you having to type the word fomrms,\n\t");
-    fprintf(stdout,"The words of the numbers will be displayed and you will input the number forms as fast as you can.\n\t");
-    fprintf(stdout,"Like always, the stats will be displayed at the end =)\n\n");
+    fprintf(stdout," This mode is the exact reverse of mode1, instead of the numbers being\n\t displayed and you having to type the word forms.\n\t");
+    fprintf(stdout,"The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
+    fprintf(stdout," Like always, the stats will be displayed at the end =)\n\n");
     wait(15);
   }
 }
