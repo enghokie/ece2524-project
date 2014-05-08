@@ -21,13 +21,13 @@ int wait(double seconds)
 void welcome()
 {
   system("clear");
-  printf("\t\t __________________________\n");
-  printf("\t\t|                          |\n");
-  printf("\t\t| Welcome to TypeMachine!! |\n");
-  printf("\t\t|  By: Braedon Dickerson   |\n");
-  printf("\t\t|            & Siraj Ali   |\n");
-  printf("\t\t|__________________________|\n");
-  printf("\t\t                            \n");
+  printf("\t\t ___________________________\n");
+  printf("\t\t|                           |\n");
+  printf("\t\t| Welcome to Type-Machine!! |\n");
+  printf("\t\t|  By: Braedon Dickerson    |\n");
+  printf("\t\t|            & Siraj Ali    |\n");
+  printf("\t\t|___________________________|\n");
+  printf("\t\t                             \n");
   printf("    **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
 }
@@ -74,7 +74,18 @@ void directionsMode1()
 
 void directionsMode2()
 {
-
+  system("clear");
+  printf("\t\t\t*~~~~~~~~~~*\n");
+  printf("\t\t\t|  MODE 2  |\n");
+  printf("\t\t\t*~~~~~~~~~~*\n\n");
+  printf("DIRECTIONS:\n");
+  printf("~~~~~~~~~~~\n");
+  printf(">>Type the WORD form of the number that appears\n>>Words will appear, one right after the other, until you mess up");
+  printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
+  wait(12);
+  printf("Are you ready?? ;)\n");
+  wait(3);
+  printf("GO!!\n\n");
 }
 
 void directionsMode3()
@@ -142,6 +153,21 @@ void statsMode1(double total, int numMissed)
   wait(8);
 }
 
+void statsMode2(double total, int numSpelled)
+{
+  system("clear");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  printf("*                GAME OVER                            *\n");
+  printf("*                                                     *\n");
+  printf("* STATS:                                              *\n");
+  printf("*       >>Words Spelled Correctly  %d word(s)         *\n", numSpelled);
+  printf("*       >>Average Time             %.2f second(s)     *\n", total/20);
+  printf("*                                                     *\n");
+  printf("*   !!THANKS FOR PLAYING TypeMachine!! =D             *\n");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  wait(8);
+}
+
 int modeSelect()
 {
    int mode = 0;
@@ -165,6 +191,7 @@ int main()
    {
       int timeDiff;
       int missed = 0;
+      int spelled = 0;
       int i = 0;
       double totalTime = 0;
       welcome();
@@ -176,25 +203,37 @@ int main()
 
       switch(curState)
       {
-          case mode1: {
-          directionsMode1();
-          while (i < 20)
+          case mode1: 
           {
-            timeDiff = getNum(printNum());
+            directionsMode1();
+            while (i < 20)
+            {
+              timeDiff = getNum(printNum());
 
-            if (timeDiff != 99)
-                totalTime += timeDiff;
-            else
-                missed++;
+              if (timeDiff != 99)
+                  totalTime += timeDiff;
+              else
+                  missed++;
 
-            i++;
-          }
-          statsMode1(totalTime,missed);
-          break;
+              i++;
+            }
+            statsMode1(totalTime,missed);
+            break;
 	  }
           
-          case mode2:
-          break;
+          case mode2: 
+          {
+            timeDiff = 0;	
+            directionsMode2();
+            while (timeDiff != 99)
+            {
+               timeDiff = getNum(printNum());
+	       totalTime += timeDiff();
+	       spelled++;
+            }
+            statsMode2(totalTime,spelled);
+            break;
+          }
           
           case mode3:
           break;
