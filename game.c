@@ -6,7 +6,7 @@
 char numRead[30];
 int maxElement = 0;
 
-int wait(double seconds)
+void wait(double seconds)
 {
   time_t now;
   time(&now);
@@ -16,7 +16,6 @@ int wait(double seconds)
   {
      time(&wait);
   }
-  return 1;
 }
 
 char* stringLower(char* word)
