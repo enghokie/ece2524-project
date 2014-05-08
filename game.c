@@ -102,7 +102,7 @@ int stats(double total, int numMissed)
 
 int main()
 {
-   enum States = {mode1, mode2, mode3};
+   enum States{mode1, mode2, mode3};
    enum States curState = mode1;
    
    while (1)
