@@ -30,7 +30,31 @@ void welcome()
   fprintf(stdout, "\t\t                            \n");
   fprintf(stdout, "\t**PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
-  //add descriptions of each mode
+}
+
+void modeDescriptions()
+{
+  char buf[10];
+  
+  fprintf(stdout, "If you would like to skip the mode descriptions, enter yes, otherwise enter no");
+  scanf("%s['^\n']", &buf);
+  if (!strncmp(buf,"no",10))
+  {
+    fprintf(stdout,"~>MODES<~\n");
+    fprintf(stdout,"__________\n\n");
+    fprintf(stdout,"Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
+    fprintf(stdout,"This mode randomly outputs twenty numbers and you have to type them in the space below as fast ");
+    fprintf(stdout,"as you can.\n\t Your statistics will be displayed after you have finished typing all twenty words.\n\n");
+    fprintf(stdout,"Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
+    fprintf(stdout,"This mode randomly generates numbers and you will have to type them in the space below as fast ");
+    fprintf(stdout,"as you can.\n\t The game will end once you mess up typing a number in the word form.\n\t");
+    fprintf(stdout,"Your statistics will then be displayed.\n\n");
+    fprintf(stdout,"Mode3:\n\t-Activate mode3 by inputing '3' when prompted.\n\t");
+    fprintf(stdout,"This mode is the exact reverse of mode1, instead of the numbers being displayed and you having to type the word fomrms,\n\t");
+    fprintf(stdout,"The words of the numbers will be displayed and you will input the number forms as fast as you can.\n\t");
+    fprintf(stdout,"Like always, the stats will be displayed at the end =)\n\n");
+    wait(15);
+  }
 }
 
 void directionsMode1()
@@ -121,7 +145,7 @@ int modeSelect()
    scanf("%d['^\n']", &mode);
    while (mode != 1 && mode !=2 && mode !=3)
    {
-      fprintf(stdout,"Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n")
+      fprintf(stdout,"Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
    }
    fprintf(stdout,"\n\n");
    return mode;
