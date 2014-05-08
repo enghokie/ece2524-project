@@ -21,14 +21,14 @@ int wait(double seconds)
 void welcome()
 {
   system("clear");
-  fprintf(stdout, "\t\t __________________________\n");
-  fprintf(stdout, "\t\t|                          |\n");
-  fprintf(stdout, "\t\t| Welcome to TypeMachine!! |\n");
-  fprintf(stdout, "\t\t|  By: Braedon Dickerson   |\n");
-  fprintf(stdout, "\t\t|            & Siraj Ali   |\n");
-  fprintf(stdout, "\t\t|__________________________|\n");
-  fprintf(stdout, "\t\t                            \n");
-  fprintf(stdout, "\t**PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
+  printf("\t\t __________________________\n");
+  printf("\t\t|                          |\n");
+  printf("\t\t| Welcome to TypeMachine!! |\n");
+  printf("\t\t|  By: Braedon Dickerson   |\n");
+  printf("\t\t|            & Siraj Ali   |\n");
+  printf("\t\t|__________________________|\n");
+  printf("\t\t                            \n");
+  printf("    **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
   wait(4);
 }
 
@@ -36,40 +36,40 @@ void modeDescriptions()
 {
   char buf[10];
   
-  fprintf(stdout, "If you would like to skip the mode descriptions, enter 'yes', otherwise enter 'no': \n");
+  printf("If you would like to skip the mode descriptions, enter 'yes', otherwise enter 'no': \n");
   scanf("%s['^\n']", buf);
   if (!strncmp(buf,"no",10))
   {
-    fprintf(stdout,"\n\n~>MODES<~\n");
-    fprintf(stdout,"__________\n\n");
-    fprintf(stdout,"Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
-    fprintf(stdout," This mode randomly outputs twenty numbers and you have to type them in\n\t the space below as fast ");
-    fprintf(stdout,"as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t twenty words.\n\n");
-    fprintf(stdout,"Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
-    fprintf(stdout," This mode randomly generates numbers and you will have to type them in\n\t the space below as fast ");
-    fprintf(stdout,"as you can.\n\t The game will end once you mess up typing a number in the word form.\n\t");
-    fprintf(stdout," Your statistics will then be displayed.\n\n");
-    fprintf(stdout,"Mode3:\n\t-Activate mode3 by inputing '3' when prompted.\n\t");
-    fprintf(stdout," This mode is the exact reverse of mode1, instead of the numbers being\n\t displayed and you having to type the word forms.\n\t");
-    fprintf(stdout," The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
-    fprintf(stdout," Like always, the stats will be displayed at the end =)\n\n");
+    printf("\n\n~>MODES<~\n");
+    printf("__________\n\n");
+    printf("Mode1:\n\t-Activate mode1 by inputing '1' when prompted.\n\t");
+    printf(" This mode randomly outputs twenty numbers and you have to type them in\n\t the space below as fast ");
+    printf("as you can.\n\t Your statistics will be displayed after you have finished typing all\n\t twenty words.\n\n");
+    printf("Mode2:\n\t-Activate mode2 by inputing '2' when prompted.\n\t");
+    printf(" This mode randomly generates numbers and you will have to type them in\n\t the space below as fast ");
+    printf("as you can.\n\t The game will end once you mess up typing a number in the word form.\n\t");
+    printf(" Your statistics will then be displayed.\n\n");
+    printf("Mode3:\n\t-Activate mode3 by inputing '3' when prompted.\n\t");
+    printf(" This mode is the exact reverse of mode1, instead of the numbers being\n\t displayed and you having to type the word forms.\n\t");
+    printf(" The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
+    printf(" Like always, the stats will be displayed at the end =)\n\n");
   }
 }
 
 void directionsMode1()
 {
   system("clear");
-  fprintf(stdout, "\t\t\t*~~~~~~~~~~*\n");
-  fprintf(stdout, "\t\t\t|  MODE 1  |\n");
-  fprintf(stdout, "\t\t\t*~~~~~~~~~~*\n\n");
-  fprintf(stdout, "DIRECTIONS:\n");
-  fprintf(stdout, "~~~~~~~~~~~\n");
-  fprintf(stdout, ">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
-  fprintf(stdout, "\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
+  printf("\t\t\t*~~~~~~~~~~*\n");
+  printf("\t\t\t|  MODE 1  |\n");
+  printf("\t\t\t*~~~~~~~~~~*\n\n");
+  printf("DIRECTIONS:\n");
+  printf("~~~~~~~~~~~\n");
+  printf(">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
+  printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(12);
-  fprintf(stdout, "Are you ready?? ;)\n");
+  printf("Are you ready?? ;)\n");
   wait(3);
-  fprintf(stdout, "GO!!\n\n");
+  printf("GO!!\n\n");
 }
 
 void directionsMode2()
@@ -105,7 +105,7 @@ int printNum()
   time_t now = time(&now);
   srand((unsigned) now);
   int num = rand()%20;
-  fprintf(stdout, "%d\n", num);
+  printf("%d\n", num);
   
   return num;
 }
@@ -118,7 +118,7 @@ double getNum(int numDisplayed)
   
   scanf("%s['^\n']", numRead);
   lowerCase(numRead);
-  fprintf(stdout, "\n");
+  printf("\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
   if (strncmp(numRead,intConverter(numDisplayed),100))
@@ -130,15 +130,15 @@ double getNum(int numDisplayed)
 void stats(double total, int numMissed)
 {
   system("clear");
-  fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  fprintf(stdout,"*                GAME OVER                    *\n");
-  fprintf(stdout,"*                                             *\n");
-  fprintf(stdout,"* STATS:                                      *\n");
-  fprintf(stdout,"*       >>Words Mispelled  %d/20 word(s)      *\n", numMissed);
-  fprintf(stdout,"*       >>Average Time     %.2f second(s)     *\n", total/20);
-  fprintf(stdout,"*                                             *\n");
-  fprintf(stdout,"*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
-  fprintf(stdout,"*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
+  printf("*                GAME OVER                    *\n");
+  printf("*                                             *\n");
+  printf("* STATS:                                      *\n");
+  printf("*       >>Words Mispelled  %d/20 word(s)      *\n", numMissed);
+  printf("*       >>Average Time     %.2f second(s)     *\n", total/20);
+  printf("*                                             *\n");
+  printf("*   !!THANKS FOR PLAYING TypeMachine!! =D     *\n");
+  printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
   wait(8);
 }
 
@@ -146,13 +146,13 @@ int modeSelect()
 {
    int mode = 0;
    
-   fprintf(stdout,">>Mode Desired: ");
+   printf(">>Mode Desired: ");
    scanf("%d['^\n']", &mode);
    while (mode != 1 && mode !=2 && mode !=3)
    {
-      fprintf(stdout,"Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
+      printf("Mode selected is not applicable. Please select from modes 1,2 or 3 by typing 1,2, or 3 and press enter.\n");
    }
-   fprintf(stdout,"\n\n");
+   printf("\n\n");
    return mode;
 }
 
