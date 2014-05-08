@@ -53,12 +53,15 @@ void modeDescriptions()
     fprintf(stdout," This mode is the exact reverse of mode1, instead of the numbers being\n\t displayed and you having to type the word forms.\n\t");
     fprintf(stdout,"The words of the numbers will be displayed and you will input the number\n\t forms as fast as you can.\n\t");
     fprintf(stdout," Like always, the stats will be displayed at the end =)\n\n");
-    wait(15);
   }
 }
 
 void directionsMode1()
 {
+  system("clear");
+  fprintf(stdout, "\t\t\t*~~~~~~~~~~*");
+  fprintf(stdout, "\t\t\t|  MODE 1  |");
+  fprintf(stdout, "\t\t\t*~~~~~~~~~~*\n\n");
   fprintf(stdout, "DIRECTIONS:\n");
   fprintf(stdout, "~~~~~~~~~~~\n");
   fprintf(stdout, ">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
