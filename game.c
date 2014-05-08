@@ -64,10 +64,9 @@ double printNum()
   int num = rand()%20;
    double timeDiff = 0;
   int i = 0;
-  sprintf(numRead,"");
-
   fprintf(stdout, "%d\n", num);
   scanf("%s['^\n']", numRead);
+  tolower(numRead);
   fprintf(stdout, "\n");
   time(&waitTime);
   timeDiff = difftime(waitTime,now);
