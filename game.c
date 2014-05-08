@@ -113,8 +113,8 @@ void directionsMode1()
   printf("\t\t\t*~~~~~~~~~~*\n\n");
   printf("DIRECTIONS:\n");
   printf("~~~~~~~~~~~\n");
-  printf(">>Input the amount of words you will like to try and type correctly and quickly\n");
-  printf(">>Type the WORD form of the number that appears\n>>Twenty words will appear, one right after the other");
+  printf(">>Input the amount of words you will like to try and type correctly\n");
+  printf(">>Type the WORD form of the number that appears\n>>The words will appear, one right after the other");
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
   wait(3);
   ready();
@@ -144,8 +144,8 @@ void directionsMode3()
   printf("\t\t\t*~~~~~~~~~~*\n\n");
   printf("DIRECTIONS:\n");
   printf("~~~~~~~~~~~\n");
-  printf(">>Input the amount of words you will like to try and type correctly and quickly\n");
-  printf(">>Type the INTEGER form of the number that appears\n>>Twenty numbers will appear, one right after the other");
+  printf(">>Input the amount of words you will like to try and type correctly\n");
+  printf(">>Type the INTEGER form of the number that appears\n>>The numbers will appear, one right after the other");
   printf("\n>>To quit press Ctrl+c\n>>Type the numbers as fast as you can and push enter once you're done!!\n\n");
   wait(3);
   ready();
@@ -162,16 +162,21 @@ char* intConverter(int num)
 
 int wordConverter(char* word)
 {
+  int intFound;
   int array[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
   char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
   int i;
   for (i = 0; i < 21; i++)
   {
-    if (!strncmp(word, buf[i], 100))
-	return array[i];
+    if (strncmp(word, buf[i], 100) == 0)
+    {
+    	intFound = array[i];
+    	break;
+    }
     else
-	return array[0];
+	intFound = array[0];
   }
+  return intFound;
 }
 
 int printNum()
@@ -210,7 +215,7 @@ char* printWord()
   return buf[num];
 }
 
-double getNum2(char* wordDisplayed)
+double getWord(char* wordDisplayed)
 {
   int num;
   time_t now = time(&now);
@@ -320,7 +325,7 @@ int main()
    {
       int timeDiff;
       int missed = 0;
-      int spelled = -1;
+      int spelled = 0;
       int i = 0;
       double totalTime = 0;
       welcome();
@@ -371,7 +376,7 @@ int main()
 	    totalWords();
 	    while (i < maxElement)
             {
-              timeDiff = getNum2(printWord());
+              timeDiff = getWord(printWord());
               if (timeDiff != 99)
                   totalTime += timeDiff;
               else
