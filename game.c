@@ -87,6 +87,8 @@ char* intConverter(int num)
    char* buf[21] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty"};
    if (num > -1 && num < 21)
         return buf[num];
+   else
+        return buf[0]; //error handling
 }
 
 void lowerCase(char* word)
