@@ -77,8 +77,8 @@ double getNum(int numDisplayed)
   tolower(numRead);
   fprintf(stdout, "\n");
   time(&waitTime);
-  timeDiff = difftime(waitTime,now);
-  if (strncmp(numRead,intConverter(num),100))
+  timeDiff = difftime(waitTime,numDisplayed);
+  if (strncmp(numRead,intConverter(numDisplayed),100))
        return 99;
   else
        return timeDiff;
