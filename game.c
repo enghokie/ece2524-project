@@ -5,6 +5,7 @@
 
 char numRead[30];
 int maxElement = 0;
+int gameWait = 0;
 
 void wait(double seconds)
 {
@@ -40,7 +41,7 @@ void welcome()
   printf("\t\t|___________________________|\n");
   printf("\t\t                             \n");
   printf("    **PLEASE SELECT A MODE AND WAIT UNTIL THE GAME STARTS**\n\n");
-  wait(4);
+  wait(1);
 }
 
 void modeDescriptions()
@@ -73,7 +74,25 @@ void modeDescriptions()
   else
   {
      printf("Please enter 'yes' or 'no'\n");
+     wait(1);
      modeDescriptions();
+  }
+}
+
+void experienced()
+{
+  char buf[15];
+  printf("\nAre you a new or experienced user (enter 'new' or 'experienced')?\n>>");
+  scanf("%s['^\n']",buf);
+  if (strncmp(buf,"experienced",15) == 0)
+     gameWait = 1;
+  else if (strncmp(buf,"new",15) == 0)
+     gameWait = 5;
+  else
+  {
+     printf("That is not a valid input...\n");
+     wait(1);
+     experienced();
   }
 }
 
@@ -88,10 +107,10 @@ void ready()
   }
   else if (strncmp(stringLower(buf),"no",10) == 0)
   {
-  	while (!strncmp(stringLower(buf),"no",10))
+  	while (strncmp(stringLower(buf),"yes",10) != 0)
   	{
   	  printf("Okay I'll wait...\n");
-  	  wait(5);
+  	  wait(gameWait);
   	  printf("How about now?\n");
   	  scanf("%s['^\n']", buf);
   	}
@@ -116,7 +135,7 @@ void directionsMode1()
   printf(">>Input the amount of words you will like to try and type correctly\n");
   printf(">>Type the WORD form of the number that appears\n>>The words will appear, one right after the other");
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
-  wait(3);
+  wait(gameWait);
   ready();
 }
 
@@ -131,7 +150,7 @@ void directionsMode2()
   printf(">>Type the WORD form of the number that appears\n>>Words will appear, one right after the other, ");
   printf("\n  until you misspell a word");
   printf("\n>>To quit press Ctrl+c\n>>Type the letters as fast as you can and push enter once you're done!!\n\n");
-  wait(3);
+  wait(gameWait);
   ready();
   printf("GO!!\n\n");
 }
@@ -147,7 +166,7 @@ void directionsMode3()
   printf(">>Input the amount of words you will like to try and type correctly\n");
   printf(">>Type the INTEGER form of the number that appears\n>>The numbers will appear, one right after the other");
   printf("\n>>To quit press Ctrl+c\n>>Type the numbers as fast as you can and push enter once you're done!!\n\n");
-  wait(3);
+  wait(gameWait);
   ready();
 }
 
@@ -245,7 +264,7 @@ void statsMode1(double total, int numMissed)
   printf("*                                                *\n");
   printf("*         ~PLEASE WAIT WHILE GAME RESTARTS~      *\n");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  wait(7);
+  wait(5);
 }
 
 void statsMode2(double total, int numSpelled)
@@ -262,7 +281,7 @@ void statsMode2(double total, int numSpelled)
   printf("*                                                    *\n");
   printf("*         ~PLEASE WAIT WHILE GAME RESTARTS~          *\n");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  wait(7);
+  wait(5);
 }
 
 void statsMode3(double total, int numMissed)
@@ -279,7 +298,7 @@ void statsMode3(double total, int numMissed)
   printf("*                                                    *\n");
   printf("*         ~PLEASE WAIT WHILE GAME RESTARTS~          *\n");
   printf("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n");
-  wait(7);
+  wait(5);
 }
 
 
@@ -330,6 +349,7 @@ int main()
       double totalTime = 0;
       welcome();
       modeDescriptions();
+      experienced();
       char* mode = modeSelect();
       if (strncmp(mode,"1",5) == 0) curState = mode1;
       else if (strncmp(mode,"2",5) == 0) curState = mode2;
